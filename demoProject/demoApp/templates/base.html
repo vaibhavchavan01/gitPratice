@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% comment %} {% load staticfiles %} {% endcomment %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieApp</title>
+    <style>  
+        a{  
+            text-decoration: none;  
+            color: green;  
+            font-size: 20px;  
+            padding : 8px;  
+            text-align: center;  
+        }  
+        a:hover{  
+            color: blue;  
+        }  
+             h1{  
+        text-align: center;  
+        }  
+    </style>  
+</head>
+<body>
+    {% comment %} {% block content %} {% endcomment %}
+    {% comment %} <div> {% endcomment %}
+    <nav class="navbar mynav" role='navigation' id='navbar'>
+        <div class="container">
+            {% comment %} {% block homepage %} {% endcomment %}
+            <a class ='navbar-brand mynav' href="{% url 'demoApp:home' %}">MovieApp</a>
+            
+            {% comment %} <a class ='navbar-brand mynav' href="{% url 'demoApp:home' %}">MovieApp</a> {% endcomment %}
+            
+            <ul class = "nav navbar-nav navbar-right">
+                {% comment %} {{request.session.is_superuser}} {% endcomment %}
+                {% if request.session.user%}
+                    <li><a href="{% url 'demoApp:logout' %}">Log Out</a></li>
+                
+                    {% if request.session.is_superuser %}
+                        <li><a href="{% url 'demoApp:addDetailsPage' %}" >Add</a></li>
+                        {%endif%}
+
+                {% else %}
+                    <li><a href="{% url 'demoApp:login' %}" >Log in</a></li>
+                    <li><a href="{% url 'demoApp:signup' %}" >Sign up</a></li>
+                {% endif %}
+            </ul>
+           
+            {% comment %} {% endblock %} {% endcomment %}
+        </div>
+    </nav>
+{% comment %} </div> {% endcomment %}
+<div class="container mycontent">
+    {% block content %} 
+
+    {% endblock %}
+
+  </div>
+{% comment %} {% endblock %} {% endcomment %}
+</body>
+</html>

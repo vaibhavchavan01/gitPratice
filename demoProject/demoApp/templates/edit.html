@@ -1,0 +1,44 @@
+{% block content %}
+<form method="POST" action = "{% url 'demoApp:updateDetails' data.id data.movie.id data.artist.id data.movie.genre.id %}" enctype="multipart/form-data">
+    <div class="container">
+      
+      {% csrf_token %}
+      
+      <center>
+        <h1>add details</h1>
+      <label for="title"><b>title</b></label>
+<input type="text" placeholder="Enter title" value="{{data.movie.title}}" name="title" id="title" required><br><br>
+        
+      <label for="language"><b>language</b></label>
+      <input type="text" placeholder="language" value="{{data.movie.language}}" name="language" id="language" required><br><br>
+      
+      <label for="duration"><b>duration</b></label>
+      <input type="time" placeholder="duration" value="{{data.movie.duration}}" name="duration" id="duration" required><br><br>
+      
+      <label for="release"><b>release date</b>
+        <input type="date" name="release" value="{{data.movie.release}}" required pattern="\d{2}-\d{2}-\d{4}">
+      </label><br><br>
+      
+      <label for="country"><b>country</b></label>
+      <input type="text" placeholder="country" value="{{data.movie.country}}" name="country" id="country" required><br><br>
+      
+      <label for="genre"><b>genre</b></label>
+      <input type="text" placeholder="genre" value="{{data.movie.genre.name}}" name="genre" id="genre" required><br><br>
+      
+      <label for="artist"><b>artist</b></label>
+      <input type="text" placeholder="artist" value="{{data.artist.name}}"name="artist" id="artist" required><br><br>
+
+      <label for="artist type"><b>artist type</b></label>
+      <input type="text" placeholder="artist type" value="{{data.a_type}}" name="artist type" id="artist type" required><br><br>
+
+      <label for="img"><b>Select image:</b></label>
+      <input type="file" id="img" name="img" accept="image/*"><br><br>
+
+      <p class="q"><b>description</b></p>
+      <textarea id="text" name="description" value="{{data.movie.description}}" rows="5" cols="50" required></textarea><br><br>
+      
+      <button type="submit" class="primary-btn">update</button>
+    
+    </div>
+  </form>
+  {% endblock %}

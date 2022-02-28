@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  
+</style>
+</head>
+<body>
+
+<form method="POST" action = "{% url 'demoApp:signup1' %}">
+  <div class="container">
+    {% csrf_token %}
+    <h1>Register</h1>
+    <!-- <hr> -->
+    <center>
+    <label for="email"><b>First Name</b></label>
+    <input type="text" placeholder="Enter First Name" name="fname" id="fname" required><br><br>
+	  
+    <label for="email"><b>Last Name</b></label>
+    <input type="text" placeholder="Enter Last Name" name="lname" id="lname" required><br><br>
+	
+    <label for="email">&ensp;&nbsp;<b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" id="email" required><br><br>
+    
+    <label for="email"><b>Mobile Number</b></label>
+    <input type="text" placeholder="Enter Mobile Number" name="mobile" id="mobile" required><br><br>
+    
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw" required><br><br>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required><br><br>
+    <!-- <hr> -->
+    {% comment %} <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p> {% endcomment %}
+
+    <button type="submit" class="registerbtn">Register</button>
+  </div>
+  
+  <div class="container Lod in">
+    <!-- <p>Already have an account? please Log in</p> -->
+  </div>
+</form>
+</center>
+</body>
+</html>
+
+{% endblock content %}
+
