@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{display:inline-block;}
+    </style>
+</head>
+
+<body>
+    <h1></h1>
+    
+    <div>
+        <ul><h2>{{movie_artist.movie.title}}</h2></ul>
+        <ul><p>{{movie_artist.movie.language}}</p></ul>
+        <ul><p>{{movie_artist.movie.duration}}</p></ul>
+        <ul><p>{{movie_artist.movie.release}}</p></ul>
+        <ul><p>{{movie_artist.movie.country}}</p></ul>
+        <ul><p>{{movie_artist.movie.description}}</p></ul>
+        <ul><p>{{movie_artist.movie.genre.name}}</p></ul>
+        <ul><p>{{movie_artist.artist.name}}</p></ul>
+        <ul><p>{{movie_artist.a_type}}</p></ul> 
+        {% if request.session.is_superuser %} 
+                <a href="{% url 'demoApp:edit' movie_artist.id %}" >Edit</a>
+                <a href="{% url 'demoApp:delete' movie_artist.id %}" >Delete</a>   
+        {% endif %}     
+    </div>
+     
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/demoApp/static/style.css">
+</head>
+
+<body>
+    <h1>{{request.session.is_superuser}}</h1>
+    {% for data in movie_artist%}
+    <div>
+        <ul><h2><p>title: </p>{{data.movie.title}}</h2></ul>
+        <ul><p><p>language: </p>{{data.movie.language}}</p></ul>
+        <ul><p><p>duration: </p>{{data.movie.duration}}</p></ul>
+        <ul><p><p>release: </p>{{data.movie.release}}</p></ul>
+        <ul><p><p>country: </p>{{data.movie.country}}</p></ul>
+        <ul><p><p>description: </p>{{data.movie.description}}</p></ul>
+        <ul><p><p>genre: </p>{{data.movie.genre.name}}</p></ul>
+        <ul><p><p>artist: </p>{{data.artist.name}}</p></ul>
+        <ul><p><p>artist type: </p>{{data.a_type}}</p></ul>  
+        
+    </div>
+    {%endfor%} 
+</body>
+</html>
+{% endblock content %}

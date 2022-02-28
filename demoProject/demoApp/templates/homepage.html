@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="/demoApp/static/style.css">
+    </head>
+    <body>
+        <div style="display:grid; grid-template-columns: auto auto auto auto auto; gap: 20px;">
+        {% for data in movie_artist%}
+        <div>
+            <img src={{data.movie.image.url}} alt="Avatar" style="width:200px; height : 300px" >
+            <div class="container">
+                <a href="{% url 'demoApp:detail' data.id %}"><h4><b>{{data.movie.title}}</b></h4> </a>
+                
+            
+            
+        </div>
+        </div>
+        {%endfor%} 
+        </div>
+    </body>
+    </html>
+    <!-- <h1>Welcome to Movie App!</h1>
+    <center><h2>Login or Sign-up to get started!</h2></center> -->
+    
+    </body>
+{% endblock content %}
